@@ -1,0 +1,36 @@
+1. Install National Instruments Measurement & Automation Explorer (MAX):
+
+https://www.ni.com/nl-nl/support/downloads/drivers/download/packaged.system-configuration.345614.html
+
+2. Install NI-serial (needed to use NI USB-232 cable)
+
+3. Get the right labels for your IP printer:
+https://www.bradyid.com/labels/ip
+
+4. Install Brady Workstation software (used to be labelmark 6)
+
+5. label stock: THT-7-486-3
+
+6. had to update the printer firmware:
+https://support-bradyid.force.com/s/article/How-to-Upgrade-the-Firmware-on-the-PR-IP-and-BBP72-Printers#serial
+- check the com status (using prompt):
+	mode com1: baud=115200 parity=n data=8 stop=1
+	--> Note: set baud at 9600, taking forever to download the firmware.
+- set the printer to update the firmware (via serial):
+	1. Using the printer display, navigate to Service > Firmware upd and press the Enter button
+	2. Firmware-Upd will display, press the Enter button again
+- unzip the file, chdir, and copy to printer:
+	copy /b 343_7504_brady.x2 com1
+
+
+7. And install the printer driver:
+	https://support.bradyid.com/s/article/How-to-Install-the-IP300-600-Driver
+
+8. I used the serial cable (USB-232) + NI MAX on COM3. But could also use ethernet or USB.
+
+9. clean the print head
+
+10. Error Vbat < 2.9V
+
+11. IP300 user manual:
+	https://www.bradyid.com/downloads?filename=IP_Printer_User_Manual.pdf

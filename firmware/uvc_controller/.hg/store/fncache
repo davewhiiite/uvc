@@ -1,0 +1,5 @@
+data/main.cpp.i
+data/mbed-rtos.lib.i
+data/MCP3221_navg.lib.i
+data/mbed-os.lib.i
+data/mbed.bld.i

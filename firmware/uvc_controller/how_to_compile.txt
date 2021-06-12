@@ -1,0 +1,46 @@
+conda activate mbed
+
+mbed compile -m NUCLEO_F746ZG -t ARM_GCC
+
+
+As of 7/24/2020 and mbed version 6.2 upgrade:
+0. You don't have to use conda "mbed" environment b/c you upgraded to Mbed 6.2 using Mbed Studio,
+and it looks like it can now run off of Python 3.7.4 by default.  
+
+0.1 With the upgrade, though, you did need to add pyelftools: 
+	pip install pyelftools
+
+1. You have a new serial arrangement: BufferedSerial
+
+2. printf on floats were disabled by default (kept coming out as %f). Solution:
+	- URL for fix: https://forums.mbed.com/t/float-printf-doesnt-work-in-desktop-version/9164
+	- Link for more info on mbed_app.json: https://os.mbed.com/docs/mbed-os/v6.1/program-setup/advanced-configuration.html#configuration-parameters-in-mbed-app-json-mbed-lib-json
+
+	- create an mbed_app.json file at the root directory. File looks like:
+
+{
+    "target_overrides": {
+        "*": {
+            "target.printf_lib": "minimal-printf",
+            "platform.minimal-printf-enable-floating-point": true,
+            "platform.minimal-printf-set-floating-point-max-decimals": 6,
+            "platform.minimal-printf-enable-64-bit": false
+
+        }
+    }
+}
+
+	- new compile procedure to include the mbed_app.json file:
+
+	mbed compile --app-config mbed_app.json -m NUCLEO_F746ZG -t GCC_ARM -c
+
+
+
+3. wait(x_seconds) doesn't work anymore. Do this instead:
+	    ThisThread::sleep_for(1000ms);
+
+4. you can set the target and compiler by default in the .mbed file:
+$ nano .mbed
+	TARGET=NUCLEO_F746ZG
+	TOOLCHAIN=GCC_ARM
+	

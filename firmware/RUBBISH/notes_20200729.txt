@@ -1,0 +1,6 @@
+added:
+#define SENSOR_GAIN 4.13f
+
+changed red LED indicator name from "active" to "indicator"
+
+renamed MCP3221_navg to MCP3221_N

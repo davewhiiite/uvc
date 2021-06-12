@@ -1,0 +1,19 @@
+ Generate the checksum:
+shasum -a 256 uvc_controller_reboot.bin >> checksum_R20200719A.txt
+
+Check the checksum:
+The "controller" for the UVC cabinet is actually a microcontroller
+running an embedded operating system and software ("firmware"). The firmware
+is compiled and then able to be downloaded directly to the microcontroller
+via its USB cable. To ensure that the software has not been tampered with,
+all versions of the firmware will be provided with an SHA-256 checksum. 
+A checksum is an algorithmic means of checking the integrity of the file.
+So, in order to verify the integrity of the file, merely download it, and the
+checksum_<xxx>.txt files to the same folder. Using a mac Terminal program or
+
+
+Using Linux command line:
+shasum -a 256 -c < checksum_R20200719A.txt
+
+Using Windows Prompt:
+certutil -hashfile uvc_controller_reboot.bin SHA256 

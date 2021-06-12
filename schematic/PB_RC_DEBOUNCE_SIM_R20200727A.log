@@ -1,0 +1,25 @@
+Circuit: * C:\Users\Mirrorshades\mbed\uvc_controller_project\doc\schematic\PB_RC_DEBOUNCE_SIM_R20200727A.asc
+
+Error on line 8 : s1 0 n002 n003 0 sw
+	 Unable to find definition of model "sw"
+Limiting rise time of source v2 to 0.01
+Limiting fall time of source v2 to 0.01
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Jul 28 07:44:20 2020
+Total elapsed time: 1.525 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 1113
+traniter = 1109
+tranpoints = 555
+accept = 549
+rejected = 6
+matrix size = 6
+fillins = 0
+solver = Normal
+Matrix Compiler1: 146 bytes object code size  0.1/0.0/[0.0]
+Matrix Compiler2: off  [0.1]/0.1/0.1
+
